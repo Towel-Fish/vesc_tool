@@ -32,7 +32,7 @@ DEFINES += VT_GIT_COMMIT=$$VT_GIT_COMMIT
 QT_LOGGING_RULES="qt.qml.connections=false"
 #CONFIG += qtquickcompiler
 
-CONFIG += c++11
+CONFIG += c++17
 CONFIG += resources_big
 ios: {
     QMAKE_CXXFLAGS_DEBUG += -Wall
@@ -50,7 +50,7 @@ android: {
 #CONFIG += build_mobile
 
 # Exclude built-in firmwares
-#CONFIG += exclude_fw
+# CONFIG += exclude_fw
 
 ios: {
     CONFIG    += build_mobile
@@ -82,7 +82,7 @@ DEFINES += HAS_POS
 !android: {
     # Serial port available
     DEFINES += HAS_SERIALPORT
-    DEFINES += HAS_GAMEPAD
+    #DEFINES += HAS_GAMEPAD
 }
 }
 
@@ -113,6 +113,7 @@ QT       += quickcontrols2
 QT       += quickwidgets
 QT       += svg
 QT       += gui-private
+QT       += opengl openglwidgets
 
 contains(DEFINES, HAS_SERIALPORT) {
     QT       += serialport

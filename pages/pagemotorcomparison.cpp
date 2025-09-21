@@ -1336,7 +1336,7 @@ bool PageMotorComparison::qmlUpdateNames()
                                    Q_RETURN_ARG(QVariant, returnedValue));
 
     if (ok) {
-        ok = returnedValue.canConvert(QMetaType::QVariantList);
+        ok = returnedValue.canConvert<QVariantList>();
     }
 
     if (ok) {

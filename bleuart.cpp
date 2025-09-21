@@ -76,7 +76,8 @@ void BleUart::startConnect(QString addr)
     mControl = new QLowEnergyController(deviceInfo);
 
 #else
-    mControl = new QLowEnergyController(QBluetoothAddress(addr));
+    QBluetoothDeviceInfo deviceInfo(QBluetoothAddress(addr), QString(), 0);
+    mControl = QLowEnergyController::createCentral(deviceInfo, this);
 #endif
 
     mControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
@@ -304,7 +305,7 @@ void BleUart::serviceStateChanged(QLowEnergyService::ServiceState s)
         // Bluetooth LE spec Where a characteristic can be notified, a Client Characteristic Configuration descriptor
         // shall be included in that characteristic as required by the Bluetooth Core Specification
         // Tx notify is enabled
-        mNotificationDescTx = txChar.descriptor(QBluetoothUuid::ClientCharacteristicConfiguration);
+        mNotificationDescTx = txChar.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
 
         if (mNotificationDescTx.isValid()) {
             // enable notification

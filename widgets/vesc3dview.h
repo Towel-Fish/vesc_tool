@@ -22,7 +22,7 @@
 
 #include <QObject>
 #include <QWidget>
-#include <QOpenGLWidget>
+#include <QtOpenGLWidgets/QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QOpenGLBuffer>
 

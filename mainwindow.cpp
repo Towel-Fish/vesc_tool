@@ -2183,4 +2183,3 @@ void MainWindow::on_actionRestartLispBM_triggered()
 {
     mVesc->commands()->lispSetRunning(1);
 }
-

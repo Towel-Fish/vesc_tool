@@ -315,10 +315,8 @@ void ExperimentPlot::on_experimentSaveXmlButton_clicked()
     }
 
     QXmlStreamWriter stream(&file);
-    stream.setCodec("UTF-8");
     stream.setAutoFormatting(true);
     stream.writeStartDocument();
-
     stream.writeStartElement("plot");
     stream.writeTextElement("xlabel", ui->experimentPlot->xAxis->label());
     stream.writeTextElement("ylabel", ui->experimentPlot->yAxis->label());
