@@ -1577,6 +1577,12 @@ int main(int argc, char *argv[])
         return 0;
     } else {
         QApplication *a = new QApplication(argc, argv);
+
+        QTranslator translator;
+        if (translator.load(":/translation/tr_chinese.qm")) {
+            a->installTranslator(&translator);
+        }
+
         addFonts();
 
         // Style

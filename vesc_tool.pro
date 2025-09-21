@@ -77,6 +77,10 @@ DEFINES += HAS_BLUETOOTH
 # Positioning
 DEFINES += HAS_POS
 
+#translation
+TRANSLATIONS += translation/tr_english.ts\
+                translation/tr_chinese.ts
+
 !ios: {
     QT       += printsupport
 !android: {
@@ -286,6 +290,7 @@ include(maddy/maddy.pri)
 include(minimp3/minimp3.pri)
 
 RESOURCES += res.qrc \
+    Translation.qrc \
     res_custom_module.qrc \
     res_lisp.qrc \
     res_qml.qrc
